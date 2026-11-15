@@ -1,0 +1,44 @@
+{
+  "name": "clieto-fit",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/mobile",
+    "services/api",
+    "packages/shared"
+  ],
+  "scripts": {
+    "dev": "concurrently --kill-others --names web,api \"npm run dev:web\" \"npm run dev:api\"",
+    "dev:web": "npm run dev --workspace=@clieto-fit/web",
+    "dev:api": "npm run dev --workspace=@clieto-fit/api",
+    "dev:mobile": "npm run start --workspace=@clieto-fit/mobile -- --lan",
+    "web:dev": "npm run dev:web",
+    "api:dev": "npm run dev:api",
+    "build": "npm run build:web && npm run api:build",
+    "build:web": "npm run build --workspace=@clieto-fit/web",
+    "api:build": "npm run build --workspace=@clieto-fit/api",
+    "start": "npm run start --workspace=@clieto-fit/web",
+    "api:start": "npm run start --workspace=@clieto-fit/api",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "api:typecheck": "npm run typecheck --workspace=@clieto-fit/api",
+    "lint": "eslint apps/web/src services/api/src",
+    "test": "npm run test --workspace=@clieto-fit/api",
+    "db:generate": "npm run db:generate --workspace=@clieto-fit/api",
+    "db:migrate": "npm run db:migrate --workspace=@clieto-fit/api",
+    "db:deploy": "npm run db:deploy --workspace=@clieto-fit/api",
+    "db:push": "npm run db:push --workspace=@clieto-fit/api",
+    "db:seed": "npm run db:seed --workspace=@clieto-fit/api"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.7",
+    "eslint": "^9.39.0",
+    "eslint-config-next": "^16.0.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "overrides": {
+    "deepmerge-ts": "^8.0.2",
+    "minimatch": "^11.0.8"
+  }
+}

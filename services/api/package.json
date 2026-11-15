@@ -1,0 +1,35 @@
+{
+  "name": "@clieto-fit/api",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "prisma generate && next build",
+    "start": "next start -p 3001",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test src/lib/policies.test.ts src/lib/api.test.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:push": "prisma db push",
+    "db:seed": "prisma db seed"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.0",
+    "@clieto-fit/shared": "1.0.0",
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^17.2.3",
+    "next": "^16.0.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "prisma": "^6.19.0",
+    "typescript": "^5.9.3",
+    "tsx": "^4.20.6"
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+services/api/prisma/dev.db
+services/api/prisma/dev.db-journal
+storage/logos/
